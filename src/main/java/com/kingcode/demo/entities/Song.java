@@ -1,4 +1,6 @@
-package com.kingcode.entities;
+package com.kingcode.demo.entities;
+
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -6,8 +8,12 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.Set;
 
+@Entity
+@Table(name = "tb_songs")
 public class Song implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
     private String songPath;

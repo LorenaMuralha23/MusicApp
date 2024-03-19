@@ -1,11 +1,17 @@
-package com.kingcode.entities;
+package com.kingcode.demo.entities;
+
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+@Entity
+@Table(name = "tb_single")
 public class Single implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
     private String image;

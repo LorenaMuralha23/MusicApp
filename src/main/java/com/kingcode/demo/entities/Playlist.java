@@ -1,7 +1,13 @@
-package com.kingcode.entities;
+package com.kingcode.demo.entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tb_playlist")
 public class Playlist {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
     private String image;

@@ -1,19 +1,30 @@
-package com.kingcode.entities;
+package com.kingcode.demo.entities;
+
+import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.Objects;
 
-public class ListenerUser implements Serializable {
+@Entity
+@Table(name = "tb_albums")
+public class Album implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String email;
     private String password;
+    private String description;
 
-    public ListenerUser(Integer id, String name, String email, String password) {
+    public Album() {
+    }
+
+    public Album(Integer id, String name, String email, String password, String description) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.description = description;
     }
 
     public Integer getId() {
@@ -44,16 +55,11 @@ public class ListenerUser implements Serializable {
         this.password = password;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ListenerUser that = (ListenerUser) o;
-        return Objects.equals(id, that.id);
+    public String getDescription() {
+        return description;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
