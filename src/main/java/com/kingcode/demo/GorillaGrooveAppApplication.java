@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GorillaGrooveAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GorillaGrooveAppApplication.class, args);
-
 	}
 
 }

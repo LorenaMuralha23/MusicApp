@@ -9,7 +9,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "tb_songs")
+@Table(name = "tb_song")
 public class Song implements Serializable {
 
     @Id

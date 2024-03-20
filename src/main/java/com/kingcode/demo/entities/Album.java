@@ -3,63 +3,62 @@ package com.kingcode.demo.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.time.Instant;
+import java.util.Objects;
 
 @Entity
-@Table(name = "tb_albums")
+@Table(name = "tb_album")
 public class Album implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private String email;
-    private String password;
-    private String description;
+    private String title;
+    private Instant releaseDate;
+    private String image;
 
     public Album() {
     }
 
-    public Album(Integer id, String name, String email, String password, String description) {
+    public Album(Integer id, String title) {
         this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.description = description;
+        this.title = title;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getEmail() {
-        return email;
+    public Instant getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getImage() {
+        return image;
     }
 
-    public String getPassword() {
-        return password;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Album album = (Album) o;
+        return Objects.equals(id, album.id);
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
